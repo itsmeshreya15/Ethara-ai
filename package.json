@@ -1,0 +1,15 @@
+{
+  "name": "team-task-manager",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -n api,web -c blue,magenta \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "build": "npm run build --prefix client && npm run db:generate --prefix server",
+    "start": "npm run db:migrate --prefix server && npm run start --prefix server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
